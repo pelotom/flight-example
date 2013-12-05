@@ -1,12 +1,26 @@
 define(function (require) {
   var Component = require('flight/lib/component');
-  return Component(function () {
-    this.after('initialize', function () {
-      this.on(document, 'dataTaskAdded', handleTaskAdded);
-    });
-  });
+  
+  return Component(taskList);
 
-  function handleTaskAdded(e, data) {
-    this.$node.append('<li>' + data.task.desc + '</li>');
+  function taskList() {
+    this.after('initialize', function () {
+      this.on(document, 'dataTasks', this.handleDataTasks);
+      this.on(document, 'dataTaskAdded', this.handleTaskAdded);
+      this.trigger('uiNeedsTasks');
+    });
+
+    this.handleDataTasks = function (e, data) {
+      for (key in data.tasks)
+        this.addTaskItem(data.tasks[key]);
+    }
+
+    this.handleTaskAdded = function (e, data) {
+      this.addTaskItem(data.task);
+    }
+
+    this.addTaskItem = function (task) {
+      this.$node.append('<li>' + task.desc + '</li>');
+    }
   }
 });

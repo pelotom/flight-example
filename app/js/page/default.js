@@ -4,8 +4,8 @@ define(function (require) {
   var TaskData = require('data/task_data');
 
   return function () {
+    TaskData.attachTo(document);
     AddTask.attachTo('.js-add-task');
     TaskList.attachTo('.js-task-list');
-    TaskData.attachTo(document);
   };
 });
