@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>example</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/bower_components/components-bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/components-bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+
+    <form class ="js-add-task form-inline">
+        <label class =" control-label">Add a task</label>
+        <div class =" controls">
+            <input type="text" placeholder ="description" class ="js-add-task-description"/>
+            <input type="submit" class ="js-add-task-submit btn btn-primary"/>
+        </div>
+    </form>
+
+    <h2>Tasks</h2>
+    <ul class="js-task-list"></ul>
+
+    <!--[if lt IE 9]>
+    <script src="/bower_components/es5-shim/es5-shim.js"></script>
+    <script src="/bower_components/es5-shim/es5-sham.js"></script>
+    <![endif]-->
+    <script src="/bower_components/jquery/jquery.js"></script>
+    <script src="/bower_components/components-bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bower_components/requirejs/require.js" data-main="js/main.js"></script>
+
+  </body>
+</html>
